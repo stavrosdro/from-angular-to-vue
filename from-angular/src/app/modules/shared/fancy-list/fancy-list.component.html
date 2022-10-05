@@ -1,0 +1,9 @@
+<ul [ngClass]="{horizontal}">
+    <li *ngFor="let item of list">
+        <ng-container
+            [ngTemplateOutlet]="outlet"
+            [ngTemplateOutletContext]="{ $implicit: item }"
+        >
+        </ng-container>
+    </li>
+</ul>

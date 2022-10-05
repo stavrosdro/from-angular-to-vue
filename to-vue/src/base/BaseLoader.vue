@@ -1,0 +1,38 @@
+<template>
+  <span class="loader"></span>
+</template>
+
+<style lang="scss" scoped>
+.loader {
+  width: 100%;
+  height: 4.8px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow: hidden;
+}
+.loader::after {
+  content: "";
+  width: 192px;
+  height: 4.8px;
+  background: #42b983;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  animation: animloader 2s linear infinite;
+}
+
+@keyframes animloader {
+  0% {
+    left: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    left: 100%;
+    transform: translateX(0%);
+  }
+}
+</style>

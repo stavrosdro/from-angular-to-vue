@@ -1,0 +1,11 @@
+.home-container {
+    display: flex;
+
+    .master {
+        width: 33.33%;
+    }
+
+    .detail {
+        width: 66.66%;
+    }
+}

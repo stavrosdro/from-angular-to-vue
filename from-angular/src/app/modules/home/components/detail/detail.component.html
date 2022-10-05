@@ -1,0 +1,59 @@
+<div class="detail">
+    <div class="easy-apply">
+        <button
+            (click)="navigate()"
+            class="button float breathing scale-on-hover"
+        >
+            Apply Now!
+        </button>
+    </div>
+    <div class="top">
+        <h4>Job Details</h4>
+        <div class="position">
+            Position: <span>{{ job.name }}</span>
+        </div>
+        <div class="company">
+            Company: <span>{{ job.company }}</span>
+        </div>
+    </div>
+
+    <div class="main">
+        <h5>Abstract</h5>
+        <div class="abstract">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+            culpa qui officia deserunt mollit anim id est laborum.
+        </div>
+        <h5>Requirements</h5>
+        <div class="requirements">
+            <app-fancy-list [list]="job.requirements" [horizontal]="true">
+                <ng-template #outlet let-requirement>
+                    <app-badge [warn]="true">
+                        <span>{{ requirement }}</span>
+                    </app-badge>
+                </ng-template>
+            </app-fancy-list>
+        </div>
+        <h5>Nice to have</h5>
+        <div class="nice-to-have">
+            <app-fancy-list [list]="job.niceToHave" [horizontal]="true">
+                <ng-template #outlet let-niceToHave>
+                    <app-badge>
+                        <span>{{ niceToHave }}</span>
+                    </app-badge>
+                </ng-template>
+            </app-fancy-list>
+        </div>
+    </div>
+
+    <div class="bottom">
+        <h5>Other</h5>
+        <div class="salary">
+            Salary: <span>{{ job.salary | currency }}</span>
+        </div>
+    </div>
+</div>

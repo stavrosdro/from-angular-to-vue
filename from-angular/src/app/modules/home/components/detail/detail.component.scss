@@ -1,0 +1,41 @@
+.detail {
+    position: relative;
+
+    .easy-apply {
+        position: absolute;
+        top: 0;
+        right: 16px;
+    }
+
+    .top {
+        margin: 24px 16px;
+        .position,
+        .company {
+            font-style: italic;
+            span {
+                font-weight: 700;
+                font-style: normal;
+                color: #1e90ff;
+            }
+        }
+    }
+
+    .main {
+        margin: 24px 16px;
+        .abstract {
+            font-style: italic;
+        }
+    }
+
+    .bottom {
+        margin: 24px 16px;
+        .salary {
+            font-style: italic;
+            span {
+                font-weight: 700;
+                font-style: normal;
+                color: brown;
+            }
+        }
+    }
+}

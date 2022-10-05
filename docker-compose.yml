@@ -1,0 +1,37 @@
+version: '3.9'
+services:
+  angular-dev:
+    build: 
+      context: ./from-angular
+      dockerfile: ./Dockerfile.ng14
+    volumes:
+      - ./from-angular:/app
+    container_name: angular-dev
+    ports:
+      - "4200:4200"
+      - "49153:49153"
+    networks: 
+      - app
+  vue-dev:
+    build: 
+      context: ./to-vue
+    volumes:
+      - ./to-vue:/app
+    container_name: vue-dev
+    ports:
+      - "8080:8080"
+    networks: 
+      - app
+  node-dev:
+    build: 
+      context: ./backend
+      dockerfile: ./Dockerfile.node18
+    volumes:
+      - ./backend:/app
+    container_name: node-dev
+    ports:
+      - "3000:3000"
+    networks: 
+      - app
+networks:
+  app:

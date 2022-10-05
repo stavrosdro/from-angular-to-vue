@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit(heroForm.form)" #heroForm="ngForm">
+    <div class="form-group">
+        <input
+            type="text"
+            class=""
+            [(ngModel)]="job.name"
+            name="name"
+            minlength="3"
+            #name="ngModel"
+            placeholder="Search jobs here..."
+            (input)="onSubmit(heroForm.form)"
+        />
+        <div
+            class="error__wrapper"
+            *ngIf="name.invalid && (name.dirty || name.touched)"
+        >
+            <span class="error__message" *ngIf="name.errors?.['minlength']">
+                Use at least 3 characters
+            </span>
+        </div>
+    </div>
+    <button type="submit" [disabled]="!heroForm.valid" hidden></button>
+</form>

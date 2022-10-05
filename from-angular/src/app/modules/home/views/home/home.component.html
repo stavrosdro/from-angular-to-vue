@@ -1,0 +1,10 @@
+<section class="home-container">
+    <div class="master">
+        <app-filters (formSubmit)="onFormSubmit($event)"></app-filters>
+        <app-jobs></app-jobs>
+    </div>
+    <div class="detail">
+        <router-outlet></router-outlet>
+    </div>
+    <router-outlet name="modal"></router-outlet>
+</section>

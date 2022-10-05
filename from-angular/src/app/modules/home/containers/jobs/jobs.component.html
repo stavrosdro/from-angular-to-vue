@@ -1,0 +1,15 @@
+<div *ngIf="data | async as data">
+    <div class="error" *ngIf="data.error">{{ data.error }}</div>
+    <app-fancy-list [list]="data.jobs">
+        <ng-template #outlet let-job>
+            <app-job
+                [job]="job"
+                [active]="data.selectedJobId === job.id"
+                (click)="onJobClick(job)"
+            ></app-job>
+        </ng-template>
+    </app-fancy-list>
+    <button class="button" type="button" (click)="onFetchJobs()">
+        Refresh
+    </button>
+</div>

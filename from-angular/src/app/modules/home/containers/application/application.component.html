@@ -1,0 +1,96 @@
+<app-dialog (closeDialog)="onCloseDialog()">
+    <div class="application">
+        <h3>Job Application</h3>
+        <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-control">
+                <label for="jobTitleAndCompany">Job Title & Company</label>
+                <input
+                    formControlName="jobTitleAndCompany"
+                    id="jobTitleAndCompany"
+                    type="text"
+                />
+            </div>
+            <div class="form-control">
+                <input
+                    formControlName="firstName"
+                    type="text"
+                    placeholder="First Name"
+                />
+                <div
+                    class="error__wrapper"
+                    *ngIf="
+                        form.controls['firstName'].invalid &&
+                        (form.controls['firstName'].dirty ||
+                            form.controls['firstName'].touched)
+                    "
+                >
+                    <span
+                        class="error__message"
+                        *ngIf="form.controls['firstName'].errors?.['required']"
+                    >
+                        This field is required
+                    </span>
+                </div>
+            </div>
+            <div class="form-control">
+                <input
+                    formControlName="lastName"
+                    type="text"
+                    placeholder="Last Name"
+                />
+                <div
+                    class="error__wrapper"
+                    *ngIf="
+                        form.controls['lastName'].invalid &&
+                        (form.controls['lastName'].dirty ||
+                            form.controls['lastName'].touched)
+                    "
+                >
+                    <span
+                        class="error__message"
+                        *ngIf="form.controls['lastName'].errors?.['required']"
+                    >
+                        This field is required
+                    </span>
+                </div>
+            </div>
+            <div class="form-control">
+                <input
+                    formControlName="email"
+                    type="text"
+                    placeholder="Email"
+                />
+                <div
+                    class="error__wrapper"
+                    *ngIf="
+                        form.controls['email'].invalid &&
+                        (form.controls['email'].dirty ||
+                            form.controls['email'].touched)
+                    "
+                >
+                    <span
+                        class="error__message"
+                        *ngIf="form.controls['email'].errors?.['required']"
+                    >
+                        This field is required
+                    </span>
+                    <span
+                        class="error__message"
+                        *ngIf="form.controls['email'].errors?.['email']"
+                    >
+                        Email is invalid
+                    </span>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="button" (click)="onCloseDialog()" type="button">
+                    Close
+                </button>
+
+                <button class="button float scale-on-hover" type="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</app-dialog>

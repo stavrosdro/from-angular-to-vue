@@ -1,0 +1,26 @@
+[
+    {
+        "company": "Company 1",
+        "date": {
+            "from": "2022-08-01T10:00:00.000Z",
+            "to": "2022-08-31T10:00:00.000Z"
+        },
+        "id": 1,
+        "name": "Frontend Developer",
+        "niceToHave": ["NGINX", "Tailwind"],
+        "requirements": ["Angular", "RxJS", "NgRx"],
+        "salary": 80000
+    },
+    {
+        "company": "Company 2",
+        "date": {
+            "from": "2022-08-01T10:00:00.000Z",
+            "to": "2022-08-31T10:00:00.000Z"
+        },
+        "id": 2,
+        "name": "Senior Frontend Developer",
+        "niceToHave": ["NGINX", "Tailwind"],
+        "requirements": ["Angular", "RxJS", "NgRx", "PWA", "SSR"],
+        "salary": 140000
+    }
+]

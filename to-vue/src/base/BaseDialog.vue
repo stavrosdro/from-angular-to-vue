@@ -1,0 +1,71 @@
+<template>
+  <dialog open class="dialog">
+    <slot />
+  </dialog>
+  <div class="backdrop" @click="onCloseDialog"></div>
+</template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  emits: ["onCloseDialog"],
+  setup(_, { emit }) {
+    function onCloseDialog() {
+      emit("onCloseDialog");
+    }
+
+    return { onCloseDialog };
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.dialog {
+  width: 20vw;
+  max-height: 50vh;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  background-color: #fff;
+  border: 1px solid black;
+  border-radius: 8px;
+  z-index: 10;
+  animation: move-in 0.3s ease-in-out;
+
+  @media (max-width: 768px) {
+    width: 80vw;
+    max-height: 70vh;
+  }
+
+  @keyframes move-in {
+    from {
+      opacity: 0.5;
+      transform: scale(0.6);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.backdrop {
+  background: rgba(255, 255, 255, 0.55);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: change-color 0.3s ease-in-out;
+
+  @keyframes change-color {
+    from {
+      background: inherit;
+    }
+    to {
+      background: rgba(255, 255, 255, 0.55);
+    }
+  }
+}
+</style>
